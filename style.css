@@ -1,0 +1,86 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; }
+
+/* 学习使用scss的mixin @mixin与@include*/
+.button-wrapper button {
+  border: none;
+  font-size: 24px;
+  padding: 15px 35px;
+  border-radius: 5px;
+  margin: 0 30px;
+  cursor: pointer; }
+  .button-wrapper button:first-child {
+    background: #55acee;
+    box-shadow: 0 6px 0 0 #126db2; }
+    .button-wrapper button:first-child:hover {
+      animation: 0.5s shake; }
+  .button-wrapper button:last-child {
+    background: #48E68B;
+    box-shadow: 0 6px 0 0 #159a4d; }
+    .button-wrapper button:last-child:hover {
+      animation: 0.5s bounce; }
+
+@keyframes shake {
+  0% {
+    transform: translateX(-10%); }
+  100% {
+    transform: translateX(0); }
+  25% {
+    transform: translateX(10%); }
+  100% {
+    transform: translateX(0); }
+  50% {
+    transform: translateX(-10%); }
+  100% {
+    transform: translateX(0); }
+  75% {
+    transform: translateX(10%); }
+  100% {
+    transform: translateX(0); } }
+/* 以上使用scss的条件语句和循环语句，相当于：
+ @keyframes shake {
+  0% {
+    transform: translateX(-10%); }
+  100% {
+    transform: translateX(0); }
+  25% {
+    transform: translateX(10%); }
+  100% {
+    transform: translateX(0); }
+  50% {
+    transform: translateX(-10%); }
+  100% {
+    transform: translateX(0); }
+  75% {
+    transform: translateX(10%); }
+  100% {
+    transform: translateX(0); } }
+*/
+@keyframes bounce {
+  0% {
+    transform: translateY(-20%); }
+  100% {
+    transform: translateX(0); }
+  25% {
+    transform: translateY(20%); }
+  100% {
+    transform: translateX(0); }
+  50% {
+    transform: translateY(-20%); }
+  100% {
+    transform: translateX(0); }
+  75% {
+    transform: translateY(20%); }
+  100% {
+    transform: translateX(0); } }
+
+/*# sourceMappingURL=style.css.map */

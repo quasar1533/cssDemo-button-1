@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@mixin buttonWithShadow($color) {
+  background: $color;
+  box-shadow: 0 6px 0 0 darken($color, 25%);
+}
+
+/* 学习使用scss的mixin @mixin与@include*/
+
+.button-wrapper {
+  button {
+    border: none;
+    font-size: 24px;
+    padding: 15px 35px;
+    border-radius: 5px;
+    margin: 0 30px;
+    cursor: pointer;
+
+    &:first-child {
+      $blue: #55acee;
+      @include buttonWithShadow($blue);
+
+      &:hover {
+        animation: 0.5s shake;
+      }
+    }
+
+    &:last-child {
+      $green: #48E68B;
+      @include buttonWithShadow($green);
+
+      &:hover {
+        animation: 0.5s bounce;
+      }
+    }
+  }
+}
+
+$step: 25%;
+$x: 10%;
+$y: 20%;
+
+@keyframes shake {
+  @for $i from 0 to 4 {
+    #{$i * $step} {
+      @if ($i % 2 == 0) {
+        transform: translateX(-$x);
+      } @else {
+        transform: translateX($x);
+      }
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+/* 以上使用scss的条件语句和循环语句，相当于：
+ @keyframes shake {
+  0% {
+    transform: translateX(-10%); }
+  100% {
+    transform: translateX(0); }
+  25% {
+    transform: translateX(10%); }
+  100% {
+    transform: translateX(0); }
+  50% {
+    transform: translateX(-10%); }
+  100% {
+    transform: translateX(0); }
+  75% {
+    transform: translateX(10%); }
+  100% {
+    transform: translateX(0); } }
+*/
+
+@keyframes bounce {
+  @for $i from 0 to 4 {
+    #{$i * $step} {
+      @if ($i % 2 == 0) {
+        transform: translateY(-$y);
+      } @else {
+        transform: translateY($y);
+      }
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
